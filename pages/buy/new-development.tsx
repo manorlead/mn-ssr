@@ -1,10 +1,10 @@
+import { Layout } from '../../components/Layout'
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Image from 'next/image'
 import React from 'react'
-import { Hero } from '../components/Home/Hero'
-import { Layout } from '../components/Layout'
 
-const Home: NextPage = () => {
+const DevelopmentSearchPage: NextPage = () => {
   return (
     <>
       <Head>
@@ -13,12 +13,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Layout isTransparent>
-        <Hero />
-        <Hero />
-      </Layout>
+      <Layout></Layout>
     </>
   )
 }
 
-export default Home
+export default DevelopmentSearchPage

@@ -1,0 +1,11 @@
+{
+  "shared": {
+    "email": "Email",
+    "Log In": "Log In",
+    "Sign Up": "Sign Up"
+  },
+  "nav": {
+    "Browse Home": "Browse Home",
+    "New Development": "New Development"
+  }
+}

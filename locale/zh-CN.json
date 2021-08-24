@@ -1,0 +1,11 @@
+{
+  "shared": {
+    "email": "Email",
+    "Log In": "登录",
+    "Sign Up": "注册"
+  },
+  "nav": {
+    "Browse Home": "找房产",
+    "New Development": "找新开发楼盘"
+  }
+}
