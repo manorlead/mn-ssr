@@ -7,5 +7,10 @@
   "nav": {
     "Browse Home": "找房产",
     "New Development": "找新开发楼盘"
+  },
+  "home": {
+    "Manorlead Exclusives": "Manorlead 独家物业",
+    "listing-subtitle": "我们的独家优质物业",
+    "view-listing": "查看更多物业"
   }
 }

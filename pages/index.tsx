@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import React from 'react'
 import { Hero } from '../components/Home/Hero'
+import { ListingSection } from '../components/Home/ListingSection'
 import { Layout } from '../components/Layout'
 
 const Home: NextPage = () => {
@@ -15,7 +16,8 @@ const Home: NextPage = () => {
 
       <Layout isTransparent>
         <Hero />
-        <Hero />
+
+        <ListingSection />
       </Layout>
     </>
   )

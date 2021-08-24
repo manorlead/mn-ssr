@@ -1,6 +1,9 @@
 .primary_color {
   color: #ffb800 !important;
 }
+.secondary_color {
+  color: rgb(18, 23, 28) !important;
+}
 .white {
   color: white !important;
 }

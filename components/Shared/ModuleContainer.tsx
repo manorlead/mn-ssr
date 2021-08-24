@@ -45,6 +45,6 @@ const Background = styled.div`
 `
 
 const Container = styled.div`
-  max-width: 1480px;
+  max-width: 1200px;
   width: 100%;
 `

@@ -22,7 +22,8 @@ export const SinglePicBanner = (props: {
           containerStyle={{
             display: 'flex',
             justifyContent: 'center',
-            zIndex: 1
+            zIndex: 1,
+            maxWidth: 1600
           }}
           backgroundStyle={{ height: height }}
         >

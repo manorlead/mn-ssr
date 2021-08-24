@@ -7,5 +7,10 @@
   "nav": {
     "Browse Home": "Browse Home",
     "New Development": "New Development"
+  },
+  "home": {
+    "Manorlead Exclusives": "Manorlead Exclusives",
+    "listing-subtitle": "Browse properties exclusively listed with Manorlead",
+    "view-listing": "View More Listings"
   }
 }

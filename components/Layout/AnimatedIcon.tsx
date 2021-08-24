@@ -13,13 +13,7 @@ export const AnimatedIcon = (props: { open: boolean; onClick: () => void }) => {
             width: 25px;
             height: 15px;
             position: relative;
-            -webkit-transform: rotate(0deg);
-            -moz-transform: rotate(0deg);
-            -o-transform: rotate(0deg);
             transform: rotate(0deg);
-            -webkit-transition: 0.5s ease-in-out;
-            -moz-transition: 0.5s ease-in-out;
-            -o-transition: 0.5s ease-in-out;
             transition: 0.5s ease-in-out;
             cursor: pointer;
           }
@@ -34,13 +28,7 @@ export const AnimatedIcon = (props: { open: boolean; onClick: () => void }) => {
             border-radius: 9px;
             opacity: 1;
             left: 0;
-            -webkit-transform: rotate(0deg);
-            -moz-transform: rotate(0deg);
-            -o-transform: rotate(0deg);
             transform: rotate(0deg);
-            -webkit-transition: 0.25s ease-in-out;
-            -moz-transition: 0.25s ease-in-out;
-            -o-transition: 0.25s ease-in-out;
             transition: 0.25s ease-in-out;
           }
 
@@ -58,9 +46,6 @@ export const AnimatedIcon = (props: { open: boolean; onClick: () => void }) => {
 
           #nav-icon1.open span:nth-child(1) {
             top: 8px;
-            -webkit-transform: rotate(135deg);
-            -moz-transform: rotate(135deg);
-            -o-transform: rotate(135deg);
             transform: rotate(135deg);
           }
 
@@ -71,9 +56,6 @@ export const AnimatedIcon = (props: { open: boolean; onClick: () => void }) => {
 
           #nav-icon1.open span:nth-child(3) {
             top: 8px;
-            -webkit-transform: rotate(-135deg);
-            -moz-transform: rotate(-135deg);
-            -o-transform: rotate(-135deg);
             transform: rotate(-135deg);
           }
         `}
