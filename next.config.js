@@ -8,9 +8,6 @@ module.exports = withAntdLess({
   },
   modifyVars: {
     '@primary-color': '#ffb800',
-    '@btn-primary-color': '#454545',
-    '@layout-header-background': 'rgb(18, 23, 28)',
-    '@layout-trigger-background': 'rgb(18, 23, 28)',
     '@border-radius-base': '0px'
   },
   i18n: {
