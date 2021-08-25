@@ -2,19 +2,28 @@ import { Dropdown, Menu } from 'antd'
 import { useRouter } from 'next/dist/client/router'
 import React from 'react'
 import styled from 'styled-components'
+import intl from 'react-intl-universal'
+import { LOCALE } from '../../helpers/locale.helper'
 
 export const LanguageSelector = () => {
   const router = useRouter()
 
   const switchLang = (language: string) => {
-    router.replace(
-      { pathname: router.pathname, query: router.query },
-      undefined,
-      {
-        shallow: true,
-        locale: language
-      }
-    )
+    intl
+      .init({
+        currentLocale: language,
+        locales: LOCALE
+      })
+      .then(() => {
+        router.replace(
+          { pathname: router.pathname, query: router.query },
+          undefined,
+          {
+            shallow: true,
+            locale: language
+          }
+        )
+      })
   }
 
   const LocaleName: { [key: string]: string } = {

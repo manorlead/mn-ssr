@@ -15,7 +15,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     if (router.locale) {
       setIntlDone(false)
-
       intl
         .init({
           currentLocale: router.locale,
@@ -23,7 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         })
         .then(() => setIntlDone(true))
     }
-  }, [router.locale])
+  }, [])
 
   return (
     <>
