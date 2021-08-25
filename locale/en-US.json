@@ -9,8 +9,11 @@
     "New Development": "New Development"
   },
   "home": {
-    "Manorlead Exclusives": "Manorlead Exclusives",
-    "listing-subtitle": "Browse properties exclusively listed with Manorlead",
-    "view-listing": "View More Listings"
+    "Manorlead Exclusives": "Manorlead Exclusives and Listings",
+    "listing-subtitle": "Browse all properties listed with Manorlead",
+    "view-listing": "View More Listings",
+    "New Developments": "New Developments",
+    "dev-subtitle": "From condos to freehold houses, browse our portfolio of new development projects",
+    "view-dev": "View More Developments"
   }
 }

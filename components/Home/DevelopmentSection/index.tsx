@@ -6,19 +6,20 @@ import styled from 'styled-components'
 import useSWR from 'swr'
 import { PAGE } from '../../../helpers/router.helper'
 import { ThinBigRight } from '../../../icons/ThinBigRight'
+import { getDevelopments } from '../../../requests/development'
 import { getResidentialListings } from '../../../requests/residential'
 import { Line } from '../../Shared/Line'
 import { ModuleContainer } from '../../Shared/ModuleContainer'
-import { ListingCard } from './ListingCard'
+import { DevelopmentCard } from './DevelopmentCard'
 
-export const ListingSection = () => {
+export const DevelopmentSection = () => {
   const router = useRouter()
   const { data, error } = useSWR(
-    'MANORLEAD GROUP INC., BROKERAGE',
-    (brokerage) =>
-      getResidentialListings({
+    'priority:ASC',
+    (orderBy) =>
+      getDevelopments({
         count: 6,
-        brokerage
+        orderBy
       }),
     {
       revalidateOnFocus: false
@@ -32,39 +33,39 @@ export const ListingSection = () => {
         <Row justify="space-between" align="middle" className="mb-5">
           <div>
             <h1 className="text-3xl mb-5 font-bold">
-              {intl.get('home.Manorlead Exclusives')}
+              {intl.get('home.New Developments')}
             </h1>
             <div className="text-xl font-light">
-              {intl.get('home.listing-subtitle')}
+              {intl.get('home.dev-subtitle')}
             </div>
           </div>
         </Row>
         {data && (
           <Row gutter={[16, 16]}>
-            {data.residentialListings.map((r, i) => {
+            {data.developments.map((r, i) => {
               if (i === 0) {
                 return (
                   <Col key={r.id} xs={24} sm={12} md={12} lg={12}>
-                    <ListingCard listing={r} />
+                    <DevelopmentCard development={r} />
                   </Col>
                 )
               }
               return (
                 <Col key={r.id} xs={24} sm={12} md={12} lg={6}>
-                  <ListingCard listing={r} />
+                  <DevelopmentCard development={r} />
                 </Col>
               )
             })}
             <Col xs={24} sm={12} md={12} lg={6}>
               <MoreHoverCard
                 className={`h-full w-full bg_primary`}
-                onClick={() => router.push(PAGE.residentialtSearchPage.url)}
+                onClick={() => router.push(PAGE.developmentSearchPage.url)}
               >
                 <div
                   className={`more-card-text text-4xl secondary_color`}
                   style={{ width: '50%' }}
                 >
-                  {intl.get('home.view-listing')}
+                  {intl.get('home.view-dev')}
                 </div>
                 <div className="more-card-arrow">
                   <ThinBigRight className="secondary_color" />

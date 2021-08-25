@@ -127,6 +127,12 @@ const NavBar = styled.div`
     props.transparent && !props.mobile ? 'white' : 'black'};
   width: 100%;
   z-index: 2;
+  box-shadow: ${(props: NavBarProps) =>
+    props.transparent && !props.mobile
+      ? ''
+      : 'rgb(10 19 18 / 12%) 0px 4px 6px'};
+  border-bottom: ${(props: NavBarProps) =>
+    props.transparent && !props.mobile ? '' : '1px solid transparent'};
 
   .topBar {
     padding: 0 20px;

@@ -42,15 +42,6 @@ export interface Development {
   updatedAt: number
 }
 
-export interface DevelopmentListQuery {
-  count: number
-  offset: number
-  status?: string
-  type?: string
-  ownership?: string
-  municipality?: string
-}
-
 export interface DevelopmentType {
   id: string
   name: string
@@ -119,13 +110,4 @@ export interface FloorPlanUnit {
   id: string
   price: number
   unitNo: string
-}
-
-export interface GetDevelopmentsRes {
-  page: {
-    pageCount: string
-    totalCount: string
-    offset: string
-  }
-  developments: Development[]
 }

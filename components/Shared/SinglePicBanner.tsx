@@ -25,6 +25,7 @@ export const SinglePicBanner = (props: {
             zIndex: 1,
             maxWidth: 1600
           }}
+          containerClassName="px-6"
           backgroundStyle={{ height: height }}
         >
           {children}

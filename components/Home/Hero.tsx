@@ -9,20 +9,11 @@ export const Hero = () => {
     <>
       <style jsx>
         {`
-          .search-container {
-            width: 100%;
-          }
           .search-container .content {
             width: ${bp.lg ? '60%' : '100%'};
             padding: 40px 30px;
             background-color: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
-          }
-          .search-container .title {
-            margin-bottom: 3rem;
-          }
-          .search-container .subtitle {
-            margin-bottom: 2rem;
           }
         `}
       </style>
@@ -30,10 +21,10 @@ export const Hero = () => {
         height="90vh"
         url="https://frontend-static-images.s3.amazonaws.com/background/bg-luxury-property.jpg"
       >
-        <div className="search-container">
+        <div className="search-container w-full">
           <div className="content">
-            <div className="text-6xl white title">Discover Your Home</div>
-            <div className="text-2xl white subtitle">
+            <div className="text-6xl text-white mb-8">Discover Your Home</div>
+            <div className="text-2xl text-white mb-5">
               Find new developments and listings in the GTA
             </div>
             <ResidentialSearch />

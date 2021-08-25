@@ -36,7 +36,7 @@ export const LanguageSelector = () => {
   )
 
   return (
-    <Dropdown overlay={menu}>
+    <Dropdown overlay={menu} trigger={['click']}>
       <LangDisp>{LocaleName[router.locale || 'en-US']}</LangDisp>
     </Dropdown>
   )

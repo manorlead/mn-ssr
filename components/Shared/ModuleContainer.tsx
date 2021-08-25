@@ -21,7 +21,7 @@ export const ModuleContainer = (props: IProps) => {
     containerClassName,
     onClick
   } = props
-  const bp = useBreakpoint()
+
   return (
     <Background
       style={backgroundStyle}
@@ -42,6 +42,7 @@ const Background = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  backgroud: white;
 `
 
 const Container = styled.div`

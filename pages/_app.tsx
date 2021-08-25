@@ -1,3 +1,5 @@
+import 'tailwindcss/tailwind.css'
+require('../styles/globals.less')
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/dist/client/router'
 import { useEffect, useState } from 'react'
@@ -5,7 +7,6 @@ import { Stores, StoresContext } from '../store'
 import intl from 'react-intl-universal'
 import { LOCALE } from '../helpers/locale.helper'
 import Head from 'next/head'
-require('../styles/globals.less')
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()

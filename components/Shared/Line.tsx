@@ -1,7 +1,9 @@
 import styled from 'styled-components'
-import styles from '../../styles/variables.module.css'
 
-export const Line = () => <StyledLine className={styles.bg_primary} />
+export const Line = (props: { className?: string }) => {
+  const { className } = props
+  return <StyledLine className={`bg_primary ${className || ''}`} />
+}
 
 const StyledLine = styled.div`
   height: 5px;

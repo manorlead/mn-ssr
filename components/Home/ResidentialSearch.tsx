@@ -22,7 +22,7 @@ export const ResidentialSearch = () => {
           <SearchArea size="large" placeholder="Search" />
         </DelayedAutoComplete>
         <Button
-          icon={<SearchIcon style={{ marginTop: 5 }} />}
+          icon={<SearchIcon style={{ margin: 5 }} />}
           type="primary"
           size="large"
         />

@@ -1,42 +1,36 @@
 import { Row } from 'antd'
 import React from 'react'
+import { parsePrice } from '../../../helpers/utils.hepler'
 import { ResidentialListing } from '../../../types/listing.type'
+import _startCase from 'lodash/startCase'
+import { WowCard } from '../../Shared/WowCard'
 
 export const ListingCard = (props: { listing: ResidentialListing }) => {
   const { listing } = props
   return (
     <>
       <style jsx>{`
-        .home-listing-card {
-          position: relative;
-          width: 100%;
-          height: 220px;
-          background: linear-gradient(
-              rgba(20, 20, 20, 0) 50%,
-              rgba(20, 20, 20, 0.8)
-            ),
-            url(${listing.images[0]});
-          background-size: cover;
-        }
-        .home-listing-card .content {
+        .content {
           width: 100%;
           padding: 10px;
           position: absolute;
           bottom: 0;
         }
       `}</style>
-      <div className="home-listing-card">
-        <div className="content white">
-          <div>{listing.price}</div>
-          <div>{listing.streetAddress}</div>
+      <WowCard img={listing.images[0]}>
+        <div className="content text-white">
+          <div className="text-3xl font-semibold">{`$${parsePrice(
+            listing.price
+          )}`}</div>
+          <div>{_startCase(listing.streetAddress)}</div>
           <Row justify="space-between">
             <div>{listing.city}</div>
             <div>
-              {listing.bedrooms} bed | {listing.baths} bath
+              {parseInt(listing.bedrooms)} bed | {parseInt(listing.baths)} bath
             </div>
           </Row>
         </div>
-      </div>
+      </WowCard>
     </>
   )
 }

@@ -1,9 +1,12 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import React from 'react'
+import { ContactAgentSection } from '../components/Home/ContactAgentSection'
+import { DevelopmentSection } from '../components/Home/DevelopmentSection'
 import { Hero } from '../components/Home/Hero'
 import { ListingSection } from '../components/Home/ListingSection'
 import { Layout } from '../components/Layout'
+import { Footer } from '../components/Layout/Footer'
 
 const Home: NextPage = () => {
   return (
@@ -18,6 +21,12 @@ const Home: NextPage = () => {
         <Hero />
 
         <ListingSection />
+
+        <DevelopmentSection />
+
+        <ContactAgentSection />
+
+        <Footer />
       </Layout>
     </>
   )

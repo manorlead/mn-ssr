@@ -61,9 +61,9 @@ export const AnimatedIcon = (props: { open: boolean; onClick: () => void }) => {
         `}
       </style>
       <div id="nav-icon1" className={open ? 'open' : ''} onClick={onClick}>
-        <span className={styles.bg_primary}></span>
-        <span className={styles.bg_primary}></span>
-        <span className={styles.bg_primary}></span>
+        <span className="bg_primary"></span>
+        <span className="bg_primary"></span>
+        <span className="bg_primary"></span>
       </div>
     </>
   )
