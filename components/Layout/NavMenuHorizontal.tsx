@@ -15,20 +15,36 @@ export const NavMenuHorizontal = () => {
 
   return (
     <>
-      <Space size="middle" className="text-lg">
-        <Link href={PAGE.residentialtSearchPage.url} passHref>
-          <NavItem className={isFocus(PAGE.residentialtSearchPage.url)}>
+      <Space size={30} className="text-lg">
+        <div
+          className="relative"
+          onClick={() => {
+            router.push(PAGE.residentialtSearchPage.url)
+          }}
+        >
+          <span
+            className={`extending_stroke ${isFocus(
+              PAGE.residentialtSearchPage.url
+            )}`}
+          >
             {intl.get('nav.Browse Home')}
-          </NavItem>
-        </Link>
-        <Link href={PAGE.developmentSearchPage.url} passHref>
-          <NavItem className={isFocus(PAGE.developmentSearchPage.url)}>
+          </span>
+        </div>
+        <div
+          className="relative"
+          onClick={() => {
+            router.push(PAGE.developmentSearchPage.url)
+          }}
+        >
+          <span
+            className={`extending_stroke ${isFocus(
+              PAGE.developmentSearchPage.url
+            )}`}
+          >
             {intl.get('nav.New Development')}
-          </NavItem>
-        </Link>
+          </span>
+        </div>
       </Space>
     </>
   )
 }
-
-const NavItem = styled.a``

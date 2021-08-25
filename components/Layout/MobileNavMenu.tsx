@@ -3,7 +3,7 @@ import { useStores } from '../../store'
 import styles from '../../styles/variables.module.css'
 import styled from 'styled-components'
 import React from 'react'
-import { Avatar, Button, Divider, Row, Space } from 'antd'
+import { Avatar, Button, Divider, Menu, Row, Space } from 'antd'
 import Link from 'next/link'
 import { PAGE } from '../../helpers/router.helper'
 import { useRouter } from 'next/dist/client/router'
@@ -12,7 +12,7 @@ import { LanguageSelector } from './LanguageSelector'
 
 export const MobileNavMenu = observer(() => {
   const {
-    SettingsStore: { mobileMenuOpen$ },
+    SettingsStore: { mobileMenuOpen$, setMobileMenuState$ },
     UserStore: { user$, logout$, restoreUser$ }
   } = useStores()
 
@@ -29,22 +29,27 @@ export const MobileNavMenu = observer(() => {
     <>
       {mobileMenuOpen$ && (
         <MobileNavMenuContainer>
-          <Space size="middle" className="text-lg" direction="vertical">
-            <Link href={PAGE.residentialtSearchPage.url} passHref>
-              <a className={isFocus(PAGE.residentialtSearchPage.url)}>
-                {intl.get('nav.Browse Home')}
-              </a>
-            </Link>
-            <Link href={PAGE.developmentSearchPage.url} passHref>
-              <a className={isFocus(PAGE.developmentSearchPage.url)}>
-                {intl.get('nav.New Development')}
-              </a>
-            </Link>
-          </Space>
+          <Menu
+            selectedKeys={[router.pathname]}
+            mode="inline"
+            onSelect={(key) => {
+              router.push(key.key).then(() => {
+                setMobileMenuState$(false)
+              })
+            }}
+            selectable
+          >
+            <Menu.Item key={PAGE.residentialtSearchPage.url}>
+              {intl.get('nav.Browse Home')}
+            </Menu.Item>
+            <Menu.Item key={PAGE.developmentSearchPage.url}>
+              {intl.get('nav.New Development')}
+            </Menu.Item>
+          </Menu>
 
           <Divider />
 
-          <Row justify="space-between">
+          <Row justify="space-between" align="middle">
             <Space size="middle">
               <Button type="text" size="large">
                 {intl.get('shared.Log In')}
@@ -77,5 +82,4 @@ const MobileNavMenuContainer = styled.div`
   width: 100%;
   z-index: 3;
   background: white;
-  padding: 0 20px;
 `

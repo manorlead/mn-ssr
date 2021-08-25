@@ -1,5 +1,6 @@
 import 'tailwindcss/tailwind.css'
 require('../styles/globals.less')
+require('../styles/animation.less')
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/dist/client/router'
 import { useEffect, useState } from 'react'

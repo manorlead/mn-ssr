@@ -29,6 +29,12 @@ export const Layout = observer(
       UserStore: { user$, logout$, restoreUser$ }
     } = useStores()
 
+    useEffect(() => {
+      if (bp.lg) {
+        setMobileMenuState$(false)
+      }
+    }, [bp.lg])
+
     const onLogout = () => {
       logout$()
       router.push('/login')
@@ -56,7 +62,7 @@ export const Layout = observer(
               <Row justify="space-between" align="middle" className="topBar">
                 <Col>
                   <div className="menu-container">
-                    <Space size="large">
+                    <Space size={30}>
                       <a href={PAGE.homepage.url}>
                         <Image
                           src="https://frontend-static-images.s3.amazonaws.com/logos/manorlead-logo-may-31.svg"
