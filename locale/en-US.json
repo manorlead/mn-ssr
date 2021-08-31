@@ -15,5 +15,79 @@
     "New Developments": "New Developments",
     "dev-subtitle": "From condos to freehold houses, browse our portfolio of new development projects",
     "view-dev": "View More Developments"
+  },
+  "authentication": {
+    "success": {
+      "resetPW": {
+        "title": "Success",
+        "subtitle": "Your password has been successfully reset"
+      },
+      "signup": {
+        "title": "You're all signed up!",
+        "subtitle": "Start your journey now!",
+        "button": "Explore Now"
+      }
+    },
+    "signupInfo": {
+      "title": "Fill out some basic information"
+    },
+    "reset": {
+      "subtitle": "Check your email for a verification code"
+    },
+    "signup": {
+      "title": "Join Now",
+      "confirmTerms": "I confirm that I have read, understood, and accept the",
+      "signedUp": "You are signed up!",
+      "termOfUse": "Terms of Use",
+      "retype": "Confirm Password",
+      "alreadyHave": "Already have an account?"
+    },
+    "verification": {
+      "codeSent": "We have sent a verification code to your email.",
+      "enterCode": "Please enter the code below.",
+      "verNeeded": "Verification Needed",
+      "verNeededMsg": "Your account needs to be verified. Please check your email for verification code",
+      "didntGetEmail": "Didn't get an email? - ",
+      "resendCode": "Resend Code",
+      "verifyEmail": "Verify Email"
+    },
+    "forgotPassword": {
+      "title": "Fill in your email and we’ll send you a link to reset it",
+      "resetPassword": "Reset Password",
+      "neverMind": "Nevermind, I remember it - ",
+      "needAnAccount": "Need an account? - "
+    },
+    "shared": {
+      "email": "Email",
+      "login": "Log In",
+      "signup": "Sign Up",
+      "forgotPassword": "Forgot Your Password?",
+      "pw": "Password",
+      "retypePW": "Confirm Password",
+      "code": "Verification Code",
+      "resetPW": "Reset Password",
+      "continueWithEmail": "Continue with Email",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "phone": "Please enter a valid phone number",
+      "done": "Done",
+      "almostDone": "Almost Done"
+    },
+    "warning": {
+      "inputEmail": "Please input your email.",
+      "inputValidEmail": "Please input a vaild email.",
+      "inputPW": "Please input your password.",
+      "inputValidPW": "Use 8 to 20 characters with a mix of upper/lowercase letters & numbers.",
+      "retypePW": "Please retype your password.",
+      "pwNotMatch": "The two passwords that you entered do not match.",
+      "code": "Please input verification code.",
+      "acceptTerm": "The user must accept the terms of use.",
+      "firstName": "Please enter your first name.",
+      "validFirstName": "Invalid first name",
+      "lastName": "Please enter your last name.",
+      "validLastName": "Invalid last name",
+      "phone": "Please input your phone number.",
+      "validPhone": "Invalid phone number"
+    }
   }
 }

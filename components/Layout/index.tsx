@@ -10,6 +10,8 @@ import styled from 'styled-components'
 import { PAGE } from '../../helpers/router.helper'
 import { getToken } from '../../requests/client'
 import { useStores } from '../../store'
+import { LoginPopup } from '../Auth/LoginPopup'
+import { SignupPopup } from '../Auth/SignupPopup'
 import { AnimatedIcon } from './AnimatedIcon'
 import { LanguageSelector } from './LanguageSelector'
 import { MobileNavMenu } from './MobileNavMenu'
@@ -26,7 +28,13 @@ export const Layout = observer(
     const scrollY = useScrollPosition(60)
     const {
       SettingsStore: { setMobileMenuState$, mobileMenuOpen$ },
-      UserStore: { user$, logout$, restoreUser$ }
+      UserStore: {
+        user$,
+        logout$,
+        restoreUser$,
+        setLoginPopupState$,
+        setSignupPopupState$
+      }
     } = useStores()
 
     useEffect(() => {
@@ -37,7 +45,6 @@ export const Layout = observer(
 
     const onLogout = () => {
       logout$()
-      router.push('/login')
     }
 
     useEffect(() => {
@@ -53,6 +60,10 @@ export const Layout = observer(
             height: 64px;
           }
         `}</style>
+
+        <LoginPopup />
+        <SignupPopup />
+
         <AntdLayout className="w-full h-full">
           <nav>
             <NavBar
@@ -80,17 +91,36 @@ export const Layout = observer(
                 <Col>
                   {bp.lg ? (
                     <Space size="middle">
-                      <Button size="large">{intl.get('shared.Log In')}</Button>
-                      <Button type="primary" size="large">
-                        {intl.get('shared.Sign Up')}
-                      </Button>
-
-                      {user$ && (
+                      {user$ ? (
                         <>
                           <Avatar src={user$.profilePictureUrl} />
                           <div className="text-white">{user$.firstName}</div>
-                          <Button onClick={onLogout} type="primary">
+                          <Button
+                            onClick={onLogout}
+                            type="primary"
+                            size="large"
+                          >
                             Logout
+                          </Button>
+                        </>
+                      ) : (
+                        <>
+                          <Button
+                            size="large"
+                            onClick={() => {
+                              setLoginPopupState$(true)
+                            }}
+                          >
+                            {intl.get('shared.Log In')}
+                          </Button>
+                          <Button
+                            type="primary"
+                            size="large"
+                            onClick={() => {
+                              setSignupPopupState$(true)
+                            }}
+                          >
+                            {intl.get('shared.Sign Up')}
                           </Button>
                         </>
                       )}
@@ -105,7 +135,7 @@ export const Layout = observer(
                   )}
                 </Col>
               </Row>
-              <MobileNavMenu />
+              {mobileMenuOpen$ && <MobileNavMenu />}
             </NavBar>
           </nav>
           <AntdLayout>

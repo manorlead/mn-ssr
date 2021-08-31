@@ -12,68 +12,68 @@ import { LanguageSelector } from './LanguageSelector'
 
 export const MobileNavMenu = observer(() => {
   const {
-    SettingsStore: { mobileMenuOpen$, setMobileMenuState$ },
-    UserStore: { user$, logout$, restoreUser$ }
+    SettingsStore: { setMobileMenuState$ },
+    UserStore: { user$, logout$, restoreUser$, setLoginPopupState$ }
   } = useStores()
 
   const router = useRouter()
 
-  const isFocus = (url: string) =>
-    router.pathname === url ? styles.primary_color : ''
-
   const onLogout = () => {
     logout$()
-    router.push('/login')
   }
   return (
-    <>
-      {mobileMenuOpen$ && (
-        <MobileNavMenuContainer>
-          <Menu
-            selectedKeys={[router.pathname]}
-            mode="inline"
-            onSelect={(key) => {
-              router.push(key.key).then(() => {
-                setMobileMenuState$(false)
-              })
-            }}
-            selectable
-          >
-            <Menu.Item key={PAGE.residentialtSearchPage.url}>
-              {intl.get('nav.Browse Home')}
-            </Menu.Item>
-            <Menu.Item key={PAGE.developmentSearchPage.url}>
-              {intl.get('nav.New Development')}
-            </Menu.Item>
-          </Menu>
+    <MobileNavMenuContainer>
+      <Menu
+        selectedKeys={[router.pathname]}
+        mode="inline"
+        onSelect={(key) => {
+          router.push(key.key).then(() => {
+            setMobileMenuState$(false)
+          })
+        }}
+        selectable
+      >
+        <Menu.Item key={PAGE.residentialtSearchPage.url}>
+          {intl.get('nav.Browse Home')}
+        </Menu.Item>
+        <Menu.Item key={PAGE.developmentSearchPage.url}>
+          {intl.get('nav.New Development')}
+        </Menu.Item>
+      </Menu>
 
-          <Divider />
+      <Divider />
 
-          <Row justify="space-between" align="middle">
-            <Space size="middle">
-              <Button type="text" size="large">
+      <Row justify="space-between" align="middle">
+        <Space size="middle">
+          {user$ ? (
+            <>
+              <Avatar src={user$.profilePictureUrl} />
+              <div>{user$.firstName}</div>
+              <Button onClick={onLogout} type="primary" size="large">
+                Logout
+              </Button>
+            </>
+          ) : (
+            <>
+              <Button
+                type="text"
+                size="large"
+                onClick={() => {
+                  setLoginPopupState$(true)
+                }}
+              >
                 {intl.get('shared.Log In')}
               </Button>
               <Button type="primary" size="large">
                 {intl.get('shared.Sign Up')}
               </Button>
+            </>
+          )}
+        </Space>
 
-              {user$ && (
-                <>
-                  <Avatar src={user$.profilePictureUrl} />
-                  <div className="text-white">{user$.firstName}</div>
-                  <Button onClick={onLogout} type="primary">
-                    Logout
-                  </Button>
-                </>
-              )}
-            </Space>
-
-            <LanguageSelector />
-          </Row>
-        </MobileNavMenuContainer>
-      )}
-    </>
+        <LanguageSelector />
+      </Row>
+    </MobileNavMenuContainer>
   )
 })
 

@@ -7,20 +7,31 @@ import { UserPofile } from '../types/auth.types'
 class UserStore {
   @observable user$: UserPofile | null = null
 
-  @action login$ = (payload: { email: string; password: string }) => {
-    signIn(payload).then((res) => {
-      if (res) {
-        if (res.userProfile.admin) {
-          setToken(res.cognitoJWT.access_token)
-          this.user$ = res.userProfile
-        } else {
-          notification.error({
-            message: 'Unauthorized',
-            description: 'Not an Admin!'
-          })
-        }
-      }
+  @observable loginInLoading$ = false
+  @action login$ = async (payload: { email: string; password: string }) => {
+    this.loginInLoading$ = true
+    const res = await signIn(payload).finally(() => {
+      this.loginInLoading$ = false
     })
+    if (res) {
+      setToken(res.cognitoJWT.access_token)
+      this.user$ = res.userProfile
+    }
+  }
+
+  @observable loginPopupState$ = false
+  @action setLoginPopupState$ = (state: boolean) => {
+    this.loginPopupState$ = state
+  }
+
+  @observable signupPopupState$ = false
+  @action setSignupPopupState$ = (state: boolean) => {
+    this.signupPopupState$ = state
+  }
+
+  @observable verificationPopupState$ = false
+  @action setVerificationPopupState$ = (state: boolean) => {
+    this.verificationPopupState$ = state
   }
 
   @action logout$ = () => {
