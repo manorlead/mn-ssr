@@ -27,6 +27,7 @@ const Card = styled.div`
   height: 220px;
   cursor: pointer;
   overflow: hidden;
+  border-radius: 8px;
 
   .bg {
     position: absolute;

@@ -8,7 +8,7 @@ module.exports = withAntdLess({
   },
   modifyVars: {
     '@primary-color': '#ffb800',
-    '@border-radius-base': '0px'
+    '@border-radius-base': '8px'
   },
   i18n: {
     locales: ['zh-CN', 'en-US'],
